@@ -32,7 +32,7 @@ A responsive, single-page style landing page (`index.html`) for **Dr. Naresh Yad
 - `contact.html`
 
 ## 📞 Contact Info (as listed on the page)
-- **Phone:** +91 6367824967
+- **Phone:** +91 6367827767
 - **Email:** ny7976540@gmail.com
 - **Location:** Jaipur, Rajasthan
 - **Hours:** Mon–Sat, 10 AM – 6 PM
