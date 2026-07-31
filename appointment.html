@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appointment | Dr. Naresh Yadav</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#0e7490;
+      --primary-dark:#0b5f75;
+      --secondary:#14b8a6;
+      --accent:#f97316;
+      --accent-dark:#ea580c;
+      --dark:#0f172a;
+      --text:#334155;
+      --muted:#64748b;
+      --light:#f8fafc;
+      --soft:#eff8ff;
+      --white:#ffffff;
+      --border:#e2e8f0;
+      --shadow:0 12px 35px rgba(15, 23, 42, 0.08);
+      --shadow-hover:0 16px 45px rgba(15, 23, 42, 0.12);
+      --transition:all 0.3s ease;
+      --max-width:1200px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.7;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    ul{
+      list-style:none;
+    }
+
+    .container{
+      width:min(92%, var(--max-width));
+      margin:auto;
+    }
+
+    .section{
+      padding:90px 0;
+    }
+
+    .bg-light{
+      background:var(--light);
+    }
+
+    .bg-soft{
+      background:linear-gradient(180deg, #f8fbff 0%, #eef8ff 100%);
+    }
+
+    .section-heading{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 50px;
+    }
+
+    .section-subtitle{
+      display:inline-block;
+      font-size:0.95rem;
+      font-weight:600;
+      color:var(--primary);
+      background:rgba(14,116,144,0.10);
+      padding:8px 16px;
+      border-radius:999px;
+      margin-bottom:14px;
+    }
+
+    .accent-subtitle{
+      color:var(--accent);
+      background:rgba(249,115,22,0.12);
+    }
+
+    .light-subtitle{
+      color:#dff9ff;
+      background:rgba(255,255,255,0.12);
+    }
+
+    .section-heading h2,
+    .appointment-hero-text h1,
+    .info-card h3,
+    .appointment-form-box h2,
+    .benefits-content h2{
+      color:var(--dark);
+      line-height:1.2;
+    }
+
+    .section-heading h2{
+      font-size:2.2rem;
+      margin-bottom:12px;
+    }
+
+    .section-heading p{
+      color:var(--muted);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:var(--white);
+      padding:14px 28px;
+      border-radius:999px;
+      font-weight:600;
+      border:none;
+      cursor:pointer;
+      transition:var(--transition);
+      box-shadow:0 10px 25px rgba(14,116,144,0.20);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 30px rgba(14,116,144,0.28);
+    }
+
+    .btn-accent{
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 10px 25px rgba(249,115,22,0.22);
+    }
+
+    .btn-accent:hover{
+      box-shadow:0 16px 30px rgba(249,115,22,0.30);
+    }
+
+    /* Header */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,0.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(226,232,240,0.7);
+    }
+
+    .navbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .logo h2{
+      font-size:1.45rem;
+      color:var(--dark);
+      margin-bottom:2px;
+    }
+
+    .logo span{
+      color:var(--primary);
+      font-size:0.92rem;
+      font-weight:600;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+
+    .nav-links a{
+      font-weight:500;
+      color:var(--dark);
+      position:relative;
+      transition:var(--transition);
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      background:var(--primary);
+      transition:var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--primary);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after{
+      width:100%;
+    }
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.7rem;
+      cursor:pointer;
+      color:var(--dark);
+    }
+
+    /* Hero */
+    .appointment-hero{
+      padding:90px 0 70px;
+      background:
+        radial-gradient(circle at top left, rgba(20,184,166,0.14), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(14,116,144,0.14), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f4fbff 100%);
+    }
+
+    .appointment-hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .appointment-hero-text h1{
+      font-size:3rem;
+      margin-bottom:18px;
+    }
+
+    .appointment-hero-text h1 span{
+      color:var(--primary);
+    }
+
+    .appointment-hero-text p{
+      color:var(--muted);
+      margin-bottom:18px;
+      font-size:1.03rem;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(220px, 1fr));
+      gap:16px;
+      margin:28px 0;
+    }
+
+    .hero-points div{
+      background:var(--white);
+      padding:16px 18px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      font-size:0.95rem;
+    }
+
+    .appointment-hero-image img{
+      border-radius:28px;
+      box-shadow:var(--shadow-hover);
+      border:8px solid rgba(255,255,255,0.8);
+    }
+
+    /* Info Cards */
+    .info-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .info-card{
+      background:var(--white);
+      padding:28px 24px;
+      border-radius:22px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      transition:var(--transition);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .info-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:5px;
+      background:linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+
+    .info-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow-hover);
+    }
+
+    .info-icon{
+      width:58px;
+      height:58px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:linear-gradient(135deg, rgba(14,116,144,0.14), rgba(20,184,166,0.14));
+      color:var(--primary);
+      font-size:1.2rem;
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    .info-card h3{
+      margin-bottom:10px;
+      font-size:1.18rem;
+    }
+
+    .info-card p{
+      color:var(--muted);
+      font-size:0.96rem;
+    }
+
+    /* Appointment Form */
+    .appointment-wrap{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:32px;
+      align-items:start;
+    }
+
+    .appointment-form-box,
+    .appointment-side{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:26px;
+      box-shadow:var(--shadow);
+      padding:34px;
+    }
+
+    .appointment-form-box h2{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .appointment-form-box p{
+      color:var(--muted);
+      margin-bottom:24px;
+    }
+
+    .appointment-form{
+      display:grid;
+      gap:18px;
+    }
+
+    .form-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .input-group{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .input-group label{
+      font-weight:600;
+      color:var(--dark);
+      font-size:0.95rem;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:14px 16px;
+      font-size:0.96rem;
+      font-family:'Poppins', sans-serif;
+      color:var(--text);
+      outline:none;
+      transition:var(--transition);
+      background:#fff;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 4px rgba(14,116,144,0.10);
+    }
+
+    .input-group textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    .submit-btn{
+      justify-self:start;
+      margin-top:8px;
+    }
+
+    .success-message{
+      display:none;
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:14px;
+      background:rgba(20,184,166,0.12);
+      color:#0f766e;
+      font-weight:600;
+      border:1px solid rgba(20,184,166,0.18);
+    }
+
+    /* Side Panel */
+    .appointment-side{
+      display:grid;
+      gap:24px;
+    }
+
+    .side-card{
+      background:var(--light);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:24px;
+    }
+
+    .side-card h3{
+      color:var(--dark);
+      margin-bottom:14px;
+      font-size:1.2rem;
+    }
+
+    .side-card p,
+    .side-card li{
+      color:var(--muted);
+      font-size:0.96rem;
+      margin-bottom:10px;
+    }
+
+    .timing-list li,
+    .contact-list li{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(226,232,240,0.8);
+    }
+
+    .timing-list li:last-child,
+    .contact-list li:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
+
+    .timing-list strong,
+    .contact-list strong{
+      color:var(--dark);
+    }
+
+    /* Benefits */
+    .benefits-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .benefits-image img{
+      border-radius:26px;
+      box-shadow:var(--shadow-hover);
+    }
+
+    .benefits-content h2{
+      font-size:2.2rem;
+      margin-bottom:18px;
+    }
+
+    .benefits-content p{
+      color:var(--muted);
+      margin-bottom:16px;
+    }
+
+    .benefit-list{
+      display:grid;
+      gap:16px;
+      margin-top:24px;
+    }
+
+    .benefit-item{
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+      background:var(--white);
+      padding:18px 20px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
+
+    .benefit-icon{
+      min-width:48px;
+      height:48px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:var(--white);
+      font-weight:700;
+      box-shadow:0 10px 24px rgba(14,116,144,0.18);
+    }
+
+    .benefit-item h4{
+      color:var(--dark);
+      margin-bottom:4px;
+    }
+
+    .benefit-item p{
+      margin:0;
+      font-size:0.95rem;
+    }
+
+    /* CTA */
+    .cta{
+      background:
+        radial-gradient(circle at top right, rgba(249,115,22,0.18), transparent 24%),
+        linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color:var(--white);
+    }
+
+    .cta-box{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:28px;
+      padding:42px;
+    }
+
+    .cta-box h2{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .cta-box p{
+      color:#d6e7f3;
+      max-width:720px;
+    }
+
+    /* Footer */
+    .footer{
+      background:#0b1220;
+      color:#dbe7f3;
+      padding-top:70px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:30px;
+      padding-bottom:40px;
+    }
+
+    .footer h3,
+    .footer h4{
+      color:var(--white);
+      margin-bottom:16px;
+    }
+
+    .footer p,
+    .footer li{
+      color:#b9c7d8;
+      margin-bottom:10px;
+      font-size:0.96rem;
+    }
+
+    .footer ul li a{
+      transition:var(--transition);
+    }
+
+    .footer ul li a:hover{
+      color:var(--white);
+      padding-left:4px;
+    }
+
+    .footer-bottom{
+      text-align:center;
+      padding:20px 0;
+      border-top:1px solid rgba(255,255,255,0.08);
+      font-size:0.95rem;
+      color:#9eb1c8;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px){
+      .appointment-hero-grid,
+      .benefits-grid,
+      .appointment-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .info-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .footer-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px){
+      .menu-toggle{
+        display:block;
+      }
+
+      .nav{
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:var(--white);
+        border-top:1px solid var(--border);
+        box-shadow:0 18px 35px rgba(15,23,42,0.08);
+        display:none;
+      }
+
+      .nav.active{
+        display:block;
+      }
+
+      .nav-links{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        gap:16px;
+      }
+
+      .nav-btn{
+        display:none;
+      }
+
+      .appointment-hero-text h1{
+        font-size:2.35rem;
+      }
+
+      .section-heading h2,
+      .appointment-form-box h2,
+      .benefits-content h2,
+      .cta-box h2{
+        font-size:1.9rem;
+      }
+
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+
+      .form-row{
+        grid-template-columns:1fr;
+      }
+
+      .cta-box{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    @media (max-width: 640px){
+      .section{
+        padding:70px 0;
+      }
+
+      .info-grid,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .appointment-hero-text h1{
+        font-size:2rem;
+      }
+
+      .section-heading h2,
+      .appointment-form-box h2,
+      .benefits-content h2,
+      .cta-box h2{
+        font-size:1.7rem;
+      }
+
+      .appointment-form-box,
+      .appointment-side,
+      .cta-box{
+        padding:26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container navbar">
+      <div class="logo">
+        <h2>Dr. Naresh Yadav</h2>
+        <span>Cardiologist</span>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+      <nav class="nav" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="appointment.html" class="active">Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="appointment.html" class="btn">Book Appointment</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="appointment-hero">
+    <div class="container appointment-hero-grid">
+      <div class="appointment-hero-text">
+        <p class="section-subtitle">Book Consultation</p>
+        <h1>Schedule an <span>Appointment</span> for Expert Cardiac Care</h1>
+        <p>
+          Book your consultation with Dr. Naresh Yadav for professional cardiology guidance,
+          heart health evaluation, preventive care, and long-term cardiac support.
+        </p>
+        <p>
+          Whether you need a routine heart checkup, ECG evaluation, blood pressure consultation,
+          or chest pain assessment, the appointment process is simple and patient-friendly.
+        </p>
+
+        <div class="hero-points">
+          <div>? Easy appointment request process</div>
+          <div>? Consultation for cardiac symptoms & preventive care</div>
+          <div>? Professional guidance for diagnosis and follow-up</div>
+          <div>? Timely and patient-focused care support</div>
+        </div>
+
+        <a href="#appointmentForm" class="btn">Book Now</a>
+      </div>
+
+      <div class="appointment-hero-image">
+        <img src="images/doctor-profile.jpg" alt="Book Appointment">
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Info -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-heading">
+        <p class="section-subtitle">Appointment Information</p>
+        <h2>Consultation Details at a Glance</h2>
+        <p>
+          Essential information for booking an appointment with Dr. Naresh Yadav at
+          Mehta Heart Care Clinic.
+        </p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">01</div>
+          <h3>Clinic Timing</h3>
+          <p>Monday to Saturday, 10:00 AM to 6:00 PM for consultation and patient care services.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">02</div>
+          <h3>Location</h3>
+          <p>Mehta Heart Care Clinic, Jaipur, Rajasthan — accessible for routine and follow-up visits.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">03</div>
+          <h3>Consultation Support</h3>
+          <p>Appointments available for heart checkup, ECG, blood pressure management, and preventive cardiology.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Form -->
+  <section class="section" id="appointmentForm">
+    <div class="container appointment-wrap">
+      <div class="appointment-form-box">
+        <p class="section-subtitle accent-subtitle">Appointment Request Form</p>
+        <h2>Request Your Appointment</h2>
+        <p>
+          Fill in your details below to request a consultation with Dr. Naresh Yadav.
+          The form is designed for easy appointment submission and patient convenience.
+        </p>
+
+        <form class="appointment-form" id="doctorAppointmentForm">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="input-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email address">
+            </div>
+
+            <div class="input-group">
+              <label for="appointmentDate">Preferred Date</label>
+              <input type="date" id="appointmentDate" name="appointmentDate" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="appointmentTime">Preferred Time</label>
+              <select id="appointmentTime" name="appointmentTime" required>
+                <option value="">Select time</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>01:00 PM</option>
+                <option>02:00 PM</option>
+                <option>03:00 PM</option>
+                <option>04:00 PM</option>
+                <option>05:00 PM</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="serviceType">Service Needed</label>
+              <select id="serviceType" name="serviceType" required>
+                <option value="">Select service</option>
+                <option>Heart Checkup</option>
+                <option>ECG Testing</option>
+                <option>Blood Pressure Management</option>
+                <option>Chest Pain Consultation</option>
+                <option>Preventive Cardiology</option>
+                <option>Follow-up Cardiac Care</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="message">Patient Message / Symptoms</label>
+            <textarea id="message" name="message" placeholder="Write your symptoms, health concern, or appointment message"></textarea>
+          </div>
+
+          <button type="submit" class="btn submit-btn">Submit Appointment Request</button>
+
+          <div class="success-message" id="successMessage">
+            Appointment request submitted successfully. Our team will contact you soon.
+          </div>
+        </form>
+      </div>
+
+      <div class="appointment-side">
+        <div class="side-card">
+          <h3>Consultation Timing</h3>
+          <ul class="timing-list">
+            <li><strong>Monday - Saturday</strong> <span>10:00 AM - 6:00 PM</span></li>
+            <li><strong>Sunday</strong> <span>Closed</span></li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h3>Clinic Contact Details</h3>
+          <ul class="contact-list">
+            <li><strong>Doctor</strong> <span>Dr. Naresh Yadav</span></li>
+            <li><strong>Clinic</strong> <span>Mehta Heart Care Clinic</span></li>
+            <li><strong>Phone</strong> <span>+91 6367824967</span></li>
+            <li><strong>Email</strong> <span>ny7976540@gmail.com</span></li>
+            <li><strong>Address</strong> <span>Jaipur, Rajasthan</span></li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h3>Before Your Visit</h3>
+          <p>Please bring previous medical records, test reports, current medicines list, and any relevant health information for better consultation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose -->
+  <section class="section bg-soft">
+    <div class="container benefits-grid">
+      <div class="benefits-image">
+        <img src="ny.jpeg" alt="Dr. Naresh Yadav Consultation">
+      </div>
+
+      <div class="benefits-content">
+        <p class="section-subtitle">Why Book with Dr. Naresh Yadav</p>
+        <h2>Trusted Consultation for Better Heart Health</h2>
+        <p>
+          Dr. Naresh Yadav offers patient-focused cardiac consultation with an emphasis on accurate diagnosis,
+          clear communication, and long-term wellness planning. Every appointment is handled with professionalism,
+          compassion, and attention to individual patient needs.
+        </p>
+
+        <div class="benefit-list">
+          <div class="benefit-item">
+            <div class="benefit-icon">?</div>
+            <div>
+              <h4>Experienced Cardiology Consultation</h4>
+              <p>12+ years of expertise in evaluating and managing heart-related concerns.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">?</div>
+            <div>
+              <h4>Patient-Centered Care</h4>
+              <p>Comfortable, respectful, and personalized consultation for every patient.</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">?</div>
+            <div>
+              <h4>Preventive & Long-Term Support</h4>
+              <p>Focused guidance for early detection, prevention, treatment, and follow-up care.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta section">
+    <div class="container cta-box">
+      <div>
+        <p class="section-subtitle light-subtitle">Need Immediate Appointment Support?</p>
+        <h2>Contact Mehta Heart Care Clinic Today</h2>
+        <p>
+          Reach out to book your consultation and receive professional guidance for
+          heart checkup, ECG testing, blood pressure care, and preventive cardiology.
+        </p>
+      </div>
+      <a href="contact.html" class="btn btn-accent">Contact Clinic</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <h3>Dr. Naresh Yadav</h3>
+        <p>
+          Professional cardiology care focused on accurate diagnosis, compassionate treatment,
+          and long-term heart health.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Consultation Services</h4>
+        <ul>
+          <li>Heart Checkup</li>
+          <li>ECG Testing</li>
+          <li>Blood Pressure Management</li>
+          <li>Preventive Cardiology</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact Info</h4>
+        <ul>
+          <li>Mehta Heart Care Clinic</li>
+          <li>Jaipur, Rajasthan</li>
+          <li>+91 6367824967</li>
+          <li>ny7976540@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Dr. Naresh Yadav. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    const appointmentForm = document.getElementById("doctorAppointmentForm");
+    const successMessage = document.getElementById("successMessage");
+
+    appointmentForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      successMessage.style.display = "block";
+      appointmentForm.reset();
+
+      setTimeout(() => {
+        successMessage.style.display = "none";
+      }, 5000);
+    });
+  </script>
+</body>
+</html>

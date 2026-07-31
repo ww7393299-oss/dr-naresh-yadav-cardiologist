@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Dr. Naresh Yadav</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#0e7490;
+      --primary-dark:#0b5f75;
+      --secondary:#14b8a6;
+      --accent:#f97316;
+      --accent-dark:#ea580c;
+      --dark:#0f172a;
+      --text:#334155;
+      --muted:#64748b;
+      --light:#f8fafc;
+      --soft:#eff8ff;
+      --white:#ffffff;
+      --border:#e2e8f0;
+      --shadow:0 12px 35px rgba(15, 23, 42, 0.08);
+      --shadow-hover:0 16px 45px rgba(15, 23, 42, 0.12);
+      --transition:all 0.3s ease;
+      --max-width:1200px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.7;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    ul{
+      list-style:none;
+    }
+
+    .container{
+      width:min(92%, var(--max-width));
+      margin:auto;
+    }
+
+    .section{
+      padding:90px 0;
+    }
+
+    .bg-light{
+      background:var(--light);
+    }
+
+    .bg-soft{
+      background:linear-gradient(180deg, #f8fbff 0%, #eef8ff 100%);
+    }
+
+    .section-heading{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 50px;
+    }
+
+    .section-subtitle{
+      display:inline-block;
+      font-size:0.95rem;
+      font-weight:600;
+      color:var(--primary);
+      background:rgba(14,116,144,0.10);
+      padding:8px 16px;
+      border-radius:999px;
+      margin-bottom:14px;
+    }
+
+    .accent-subtitle{
+      color:var(--accent);
+      background:rgba(249,115,22,0.12);
+    }
+
+    .light-subtitle{
+      color:#dff9ff;
+      background:rgba(255,255,255,0.12);
+    }
+
+    .section-heading h2,
+    .contact-hero-text h1,
+    .contact-form-box h2,
+    .clinic-panel h2,
+    .faq-heading h2{
+      color:var(--dark);
+      line-height:1.2;
+    }
+
+    .section-heading h2{
+      font-size:2.2rem;
+      margin-bottom:12px;
+    }
+
+    .section-heading p{
+      color:var(--muted);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:var(--white);
+      padding:14px 28px;
+      border-radius:999px;
+      font-weight:600;
+      border:none;
+      cursor:pointer;
+      transition:var(--transition);
+      box-shadow:0 10px 25px rgba(14,116,144,0.20);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 30px rgba(14,116,144,0.28);
+    }
+
+    .btn-accent{
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 10px 25px rgba(249,115,22,0.22);
+    }
+
+    .btn-accent:hover{
+      box-shadow:0 16px 30px rgba(249,115,22,0.30);
+    }
+
+    /* Header */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,0.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(226,232,240,0.7);
+    }
+
+    .navbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .logo h2{
+      font-size:1.45rem;
+      color:var(--dark);
+      margin-bottom:2px;
+    }
+
+    .logo span{
+      color:var(--primary);
+      font-size:0.92rem;
+      font-weight:600;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+
+    .nav-links a{
+      font-weight:500;
+      color:var(--dark);
+      position:relative;
+      transition:var(--transition);
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      background:var(--primary);
+      transition:var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--primary);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after{
+      width:100%;
+    }
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.7rem;
+      cursor:pointer;
+      color:var(--dark);
+    }
+
+    /* Hero */
+    .contact-hero{
+      padding:90px 0 70px;
+      background:
+        radial-gradient(circle at top left, rgba(20,184,166,0.14), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(14,116,144,0.14), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f4fbff 100%);
+    }
+
+    .contact-hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .contact-hero-text h1{
+      font-size:3rem;
+      margin-bottom:18px;
+    }
+
+    .contact-hero-text h1 span{
+      color:var(--primary);
+    }
+
+    .contact-hero-text p{
+      color:var(--muted);
+      margin-bottom:18px;
+      font-size:1.03rem;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(220px, 1fr));
+      gap:16px;
+      margin:28px 0;
+    }
+
+    .hero-points div{
+      background:var(--white);
+      padding:16px 18px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      font-size:0.95rem;
+    }
+
+    .contact-hero-image img{
+      border-radius:28px;
+      box-shadow:var(--shadow-hover);
+      border:8px solid rgba(255,255,255,0.8);
+    }
+
+    /* Contact Cards */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:24px;
+    }
+
+    .contact-card{
+      background:var(--white);
+      padding:28px 22px;
+      border-radius:22px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      transition:var(--transition);
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .contact-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:5px;
+      background:linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+
+    .contact-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow-hover);
+    }
+
+    .contact-icon{
+      width:62px;
+      height:62px;
+      margin:0 auto 16px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:linear-gradient(135deg, rgba(14,116,144,0.14), rgba(20,184,166,0.14));
+      color:var(--primary);
+      font-size:1.2rem;
+      font-weight:700;
+    }
+
+    .contact-card h3{
+      color:var(--dark);
+      margin-bottom:10px;
+      font-size:1.15rem;
+    }
+
+    .contact-card p{
+      color:var(--muted);
+      font-size:0.95rem;
+      word-break:break-word;
+    }
+
+    /* Contact Form + Clinic */
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:32px;
+      align-items:start;
+    }
+
+    .contact-form-box,
+    .clinic-panel{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:26px;
+      box-shadow:var(--shadow);
+      padding:34px;
+    }
+
+    .contact-form-box h2,
+    .clinic-panel h2{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .contact-form-box p,
+    .clinic-panel p{
+      color:var(--muted);
+      margin-bottom:22px;
+    }
+
+    .contact-form{
+      display:grid;
+      gap:18px;
+    }
+
+    .form-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .input-group{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .input-group label{
+      font-weight:600;
+      color:var(--dark);
+      font-size:0.95rem;
+    }
+
+    .input-group input,
+    .input-group textarea{
+      width:100%;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:14px 16px;
+      font-size:0.96rem;
+      font-family:'Poppins', sans-serif;
+      color:var(--text);
+      outline:none;
+      transition:var(--transition);
+      background:#fff;
+    }
+
+    .input-group input:focus,
+    .input-group textarea:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 4px rgba(14,116,144,0.10);
+    }
+
+    .input-group textarea{
+      min-height:150px;
+      resize:vertical;
+    }
+
+    .success-message{
+      display:none;
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:14px;
+      background:rgba(20,184,166,0.12);
+      color:#0f766e;
+      font-weight:600;
+      border:1px solid rgba(20,184,166,0.18);
+    }
+
+    .detail-card{
+      background:var(--light);
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:24px;
+      margin-bottom:20px;
+    }
+
+    .detail-card:last-child{
+      margin-bottom:0;
+    }
+
+    .detail-card h3{
+      color:var(--dark);
+      margin-bottom:14px;
+      font-size:1.2rem;
+    }
+
+    .detail-card ul li{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(226,232,240,0.8);
+      color:var(--muted);
+      font-size:0.96rem;
+    }
+
+    .detail-card ul li:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
+
+    .detail-card strong{
+      color:var(--dark);
+    }
+
+    /* Map */
+    .map-box{
+      background:var(--white);
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+    }
+
+    .map-box iframe{
+      width:100%;
+      height:420px;
+      border:0;
+    }
+
+    /* FAQ */
+    .faq-wrapper{
+      max-width:900px;
+      margin:0 auto;
+    }
+
+    .faq-heading{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .faq-heading h2{
+      font-size:2.2rem;
+      margin-bottom:10px;
+    }
+
+    .faq-heading p{
+      color:var(--muted);
+    }
+
+    .faq-item{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      margin-bottom:16px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .faq-question{
+      width:100%;
+      background:none;
+      border:none;
+      padding:20px 22px;
+      text-align:left;
+      font-size:1rem;
+      font-weight:600;
+      color:var(--dark);
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .faq-question span{
+      font-size:1.4rem;
+      color:var(--primary);
+      transition:var(--transition);
+    }
+
+    .faq-answer{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.35s ease;
+      padding:0 22px;
+    }
+
+    .faq-answer p{
+      color:var(--muted);
+      padding-bottom:20px;
+    }
+
+    .faq-item.active .faq-question span{
+      transform:rotate(45deg);
+    }
+
+    .faq-item.active .faq-answer{
+      max-height:220px;
+    }
+
+    /* CTA */
+    .cta{
+      background:
+        radial-gradient(circle at top right, rgba(249,115,22,0.18), transparent 24%),
+        linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color:var(--white);
+    }
+
+    .cta-box{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:28px;
+      padding:42px;
+    }
+
+    .cta-box h2{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .cta-box p{
+      color:#d6e7f3;
+      max-width:720px;
+    }
+
+    /* Footer */
+    .footer{
+      background:#0b1220;
+      color:#dbe7f3;
+      padding-top:70px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:30px;
+      padding-bottom:40px;
+    }
+
+    .footer h3,
+    .footer h4{
+      color:var(--white);
+      margin-bottom:16px;
+    }
+
+    .footer p,
+    .footer li{
+      color:#b9c7d8;
+      margin-bottom:10px;
+      font-size:0.96rem;
+    }
+
+    .footer ul li a{
+      transition:var(--transition);
+    }
+
+    .footer ul li a:hover{
+      color:var(--white);
+      padding-left:4px;
+    }
+
+    .footer-bottom{
+      text-align:center;
+      padding:20px 0;
+      border-top:1px solid rgba(255,255,255,0.08);
+      font-size:0.95rem;
+      color:#9eb1c8;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px){
+      .contact-hero-grid,
+      .contact-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .contact-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .footer-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px){
+      .menu-toggle{
+        display:block;
+      }
+
+      .nav{
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:var(--white);
+        border-top:1px solid var(--border);
+        box-shadow:0 18px 35px rgba(15,23,42,0.08);
+        display:none;
+      }
+
+      .nav.active{
+        display:block;
+      }
+
+      .nav-links{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        gap:16px;
+      }
+
+      .nav-btn{
+        display:none;
+      }
+
+      .contact-hero-text h1{
+        font-size:2.35rem;
+      }
+
+      .section-heading h2,
+      .contact-form-box h2,
+      .clinic-panel h2,
+      .faq-heading h2,
+      .cta-box h2{
+        font-size:1.9rem;
+      }
+
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+
+      .form-row{
+        grid-template-columns:1fr;
+      }
+
+      .cta-box{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    @media (max-width: 640px){
+      .section{
+        padding:70px 0;
+      }
+
+      .contact-grid,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .contact-hero-text h1{
+        font-size:2rem;
+      }
+
+      .section-heading h2,
+      .contact-form-box h2,
+      .clinic-panel h2,
+      .faq-heading h2,
+      .cta-box h2{
+        font-size:1.7rem;
+      }
+
+      .contact-form-box,
+      .clinic-panel,
+      .cta-box{
+        padding:26px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container navbar">
+      <div class="logo">
+        <h2>Dr. Naresh Yadav</h2>
+        <span>Cardiologist</span>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+      <nav class="nav" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="appointment.html" class="btn">Book Appointment</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <div class="container contact-hero-grid">
+      <div class="contact-hero-text">
+        <p class="section-subtitle">Get in Touch</p>
+        <h1>Contact <span>Dr. Naresh Yadav</span> for Cardiology Consultation</h1>
+        <p>
+          Reach out to Mehta Heart Care Clinic for appointment inquiries, consultation details,
+          heart care services, and patient support. We are here to help you with professional
+          and compassionate cardiac care.
+        </p>
+        <p>
+          Whether you need a routine heart checkup, ECG consultation, blood pressure management,
+          or preventive cardiology guidance, feel free to contact us.
+        </p>
+
+        <div class="hero-points">
+          <div>? Quick appointment and consultation support</div>
+          <div>? Professional assistance for patient inquiries</div>
+          <div>? Clinic location and timing information</div>
+          <div>? Easy communication for heart care services</div>
+        </div>
+
+        <a href="#contactFormSection" class="btn">Send Message</a>
+      </div>
+
+      <div class="contact-hero-image">
+        <img src="ny.jpeg" alt="Contact Dr. Naresh Yadav">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Cards -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-heading">
+        <p class="section-subtitle">Contact Information</p>
+        <h2>Connect with Mehta Heart Care Clinic</h2>
+        <p>
+          Use the contact details below for appointments, consultation inquiries,
+          and general communication regarding heart care services.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">01</div>
+          <h3>Phone Number</h3>
+          <p>+91 6367824967</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">02</div>
+          <h3>Email Address</h3>
+          <p>ny7976540@gmail.com</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">03</div>
+          <h3>Clinic Address</h3>
+          <p>Jaipur, Rajasthan</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">04</div>
+          <h3>Consultation Hours</h3>
+          <p>Mon - Sat, 10:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form + Clinic Details -->
+  <section class="section" id="contactFormSection">
+    <div class="container contact-wrap">
+      <div class="contact-form-box">
+        <p class="section-subtitle accent-subtitle">Send a Message</p>
+        <h2>Contact the Clinic</h2>
+        <p>
+          Fill in your details below for appointment requests, consultation questions,
+          or any cardiology-related inquiry. Our clinic team will get back to you as soon as possible.
+        </p>
+
+        <form class="contact-form" id="doctorContactForm">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="input-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter your email address">
+            </div>
+
+            <div class="input-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Enter message subject">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" placeholder="Write your message, appointment request, or consultation query" required></textarea>
+          </div>
+
+          <button type="submit" class="btn">Send Message</button>
+
+          <div class="success-message" id="successMessage">
+            Your message has been submitted successfully. We will contact you soon.
+          </div>
+        </form>
+      </div>
+
+      <div class="clinic-panel">
+        <p class="section-subtitle">Clinic Details</p>
+        <h2>Visit Mehta Heart Care Clinic</h2>
+        <p>
+          For direct consultation and heart care services, visit the clinic during working hours.
+          Below are the important details for easy communication and visit planning.
+        </p>
+
+        <div class="detail-card">
+          <h3>Clinic Information</h3>
+          <ul>
+            <li><strong>Doctor</strong> <span>Dr. Naresh Yadav</span></li>
+            <li><strong>Specialization</strong> <span>Cardiologist</span></li>
+            <li><strong>Qualification</strong> <span>MBBS, MD Cardiology</span></li>
+            <li><strong>Clinic</strong> <span>Mehta Heart Care Clinic</span></li>
+            <li><strong>Address</strong> <span>Jaipur, Rajasthan</span></li>
+          </ul>
+        </div>
+
+        <div class="detail-card">
+          <h3>Consultation Timing</h3>
+          <ul>
+            <li><strong>Monday - Saturday</strong> <span>10:00 AM - 6:00 PM</span></li>
+            <li><strong>Sunday</strong> <span>Closed</span></li>
+          </ul>
+        </div>
+
+        <div class="detail-card">
+          <h3>Contact Support</h3>
+          <ul>
+            <li><strong>Phone</strong> <span>+91 6367824967</span></li>
+            <li><strong>Email</strong> <span>ny7976540@gmail.com</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-heading">
+        <p class="section-subtitle">Clinic Location</p>
+        <h2>Find Our Clinic on the Map</h2>
+        <p>
+          Visit Mehta Heart Care Clinic in Jaipur, Rajasthan for expert cardiology consultation and heart care services.
+        </p>
+      </div>
+
+      <div class="map-box">
+        <iframe 
+          src="https://www.google.com/maps?q=Jaipur,Rajasthan&output=embed" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container faq-wrapper">
+      <div class="faq-heading">
+        <p class="section-subtitle">Help & Support</p>
+        <h2>Frequently Asked Contact Questions</h2>
+        <p>Quick answers to common questions related to appointments, consultation, and clinic visits.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          How can I book an appointment with Dr. Naresh Yadav?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            You can book an appointment by filling out the appointment form on the website,
+            calling the clinic directly, or sending a contact message with your preferred consultation details.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What are the consultation timings of the clinic?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Mehta Heart Care Clinic is available for consultation from Monday to Saturday,
+            10:00 AM to 6:00 PM. Sunday remains closed.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I contact the clinic for preventive cardiology consultation?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Yes, the clinic provides consultation for preventive cardiology, heart checkups,
+            blood pressure management, ECG evaluation, and other heart care concerns.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          What details should I include in the contact message?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            You should include your name, phone number, consultation concern, symptoms if any,
+            and your preferred appointment or contact timing for better response.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta section">
+    <div class="container cta-box">
+      <div>
+        <p class="section-subtitle light-subtitle">Need Expert Cardiac Consultation?</p>
+        <h2>Book Your Visit with Dr. Naresh Yadav Today</h2>
+        <p>
+          Contact Mehta Heart Care Clinic for appointment support, patient guidance,
+          and trusted heart care consultation in Jaipur, Rajasthan.
+        </p>
+      </div>
+      <a href="appointment.html" class="btn btn-accent">Book Appointment</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <h3>Dr. Naresh Yadav</h3>
+        <p>
+          Professional cardiology care focused on accurate diagnosis, compassionate treatment,
+          and long-term heart health.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Medical Services</h4>
+        <ul>
+          <li>Heart Checkup</li>
+          <li>ECG Testing</li>
+          <li>Blood Pressure Management</li>
+          <li>Preventive Cardiology</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact Info</h4>
+        <ul>
+          <li>Mehta Heart Care Clinic</li>
+          <li>Jaipur, Rajasthan</li>
+          <li>+91 6367824967</li>
+          <li>ny7976540@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Dr. Naresh Yadav. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    const contactForm = document.getElementById("doctorContactForm");
+    const successMessage = document.getElementById("successMessage");
+
+    contactForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      successMessage.style.display = "block";
+      contactForm.reset();
+
+      setTimeout(() => {
+        successMessage.style.display = "none";
+      }, 5000);
+    });
+
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach(item => {
+      const btn = item.querySelector(".faq-question");
+      btn.addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Dr. Naresh Yadav</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#0e7490;
+      --primary-dark:#0b5f75;
+      --secondary:#14b8a6;
+      --accent:#f97316;
+      --accent-dark:#ea580c;
+      --dark:#0f172a;
+      --text:#334155;
+      --muted:#64748b;
+      --light:#f8fafc;
+      --soft:#eff8ff;
+      --white:#ffffff;
+      --border:#e2e8f0;
+      --shadow:0 12px 35px rgba(15, 23, 42, 0.08);
+      --shadow-hover:0 16px 45px rgba(15, 23, 42, 0.12);
+      --transition:all 0.3s ease;
+      --max-width:1200px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.7;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    ul{
+      list-style:none;
+    }
+
+    .container{
+      width:min(92%, var(--max-width));
+      margin:auto;
+    }
+
+    .section{
+      padding:90px 0;
+    }
+
+    .bg-light{
+      background:var(--light);
+    }
+
+    .bg-soft{
+      background:linear-gradient(180deg, #f8fbff 0%, #eef8ff 100%);
+    }
+
+    .section-heading{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 50px;
+    }
+
+    .section-subtitle{
+      display:inline-block;
+      font-size:0.95rem;
+      font-weight:600;
+      color:var(--primary);
+      background:rgba(14,116,144,0.10);
+      padding:8px 16px;
+      border-radius:999px;
+      margin-bottom:14px;
+    }
+
+    .light-subtitle{
+      color:#dff9ff;
+      background:rgba(255,255,255,0.12);
+    }
+
+    .accent-subtitle{
+      color:var(--accent);
+      background:rgba(249,115,22,0.12);
+    }
+
+    .section-heading h2,
+    .service-hero-text h1,
+    .process-text h2,
+    .faq-heading h2{
+      color:var(--dark);
+      line-height:1.2;
+    }
+
+    .section-heading h2{
+      font-size:2.2rem;
+      margin-bottom:12px;
+    }
+
+    .section-heading p{
+      color:var(--muted);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:var(--white);
+      padding:14px 28px;
+      border-radius:999px;
+      font-weight:600;
+      border:none;
+      cursor:pointer;
+      transition:var(--transition);
+      box-shadow:0 10px 25px rgba(14,116,144,0.20);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 30px rgba(14,116,144,0.28);
+    }
+
+    .btn-accent{
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 10px 25px rgba(249,115,22,0.22);
+    }
+
+    .btn-accent:hover{
+      box-shadow:0 16px 30px rgba(249,115,22,0.30);
+    }
+
+    /* Header */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,0.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(226,232,240,0.7);
+    }
+
+    .navbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .logo h2{
+      font-size:1.45rem;
+      color:var(--dark);
+      margin-bottom:2px;
+    }
+
+    .logo span{
+      color:var(--primary);
+      font-size:0.92rem;
+      font-weight:600;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+
+    .nav-links a{
+      font-weight:500;
+      color:var(--dark);
+      position:relative;
+      transition:var(--transition);
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      background:var(--primary);
+      transition:var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--primary);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after{
+      width:100%;
+    }
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.7rem;
+      cursor:pointer;
+      color:var(--dark);
+    }
+
+    /* Hero */
+    .service-hero{
+      padding:90px 0 70px;
+      background:
+        radial-gradient(circle at top left, rgba(20,184,166,0.14), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(14,116,144,0.14), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f4fbff 100%);
+    }
+
+    .service-hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .service-hero-text h1{
+      font-size:3rem;
+      margin-bottom:18px;
+    }
+
+    .service-hero-text h1 span{
+      color:var(--primary);
+    }
+
+    .service-hero-text p{
+      color:var(--muted);
+      margin-bottom:18px;
+      font-size:1.03rem;
+    }
+
+    .hero-features{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(220px, 1fr));
+      gap:16px;
+      margin:28px 0;
+    }
+
+    .hero-features div{
+      background:var(--white);
+      padding:16px 18px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      font-size:0.95rem;
+    }
+
+    .service-hero-image img{
+      border-radius:28px;
+      box-shadow:var(--shadow-hover);
+      border:8px solid rgba(255,255,255,0.8);
+    }
+
+    /* Services Grid */
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .service-card{
+      position:relative;
+      background:var(--white);
+      padding:30px 24px;
+      border-radius:22px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      transition:var(--transition);
+      overflow:hidden;
+    }
+
+    .service-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:5px;
+      background:linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+
+    .service-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow-hover);
+    }
+
+    .service-badge{
+      width:56px;
+      height:56px;
+      display:grid;
+      place-items:center;
+      border-radius:18px;
+      background:linear-gradient(135deg, rgba(14,116,144,0.14), rgba(20,184,166,0.14));
+      color:var(--primary);
+      font-weight:700;
+      margin-bottom:18px;
+      font-size:1rem;
+    }
+
+    .service-card h3{
+      color:var(--dark);
+      margin-bottom:12px;
+      font-size:1.18rem;
+    }
+
+    .service-card p{
+      color:var(--muted);
+      font-size:0.96rem;
+      margin-bottom:14px;
+    }
+
+    .service-card ul{
+      padding-left:18px;
+      list-style:disc;
+      color:var(--muted);
+      font-size:0.94rem;
+    }
+
+    .service-card ul li{
+      margin-bottom:8px;
+    }
+
+    /* Process */
+    .process-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .process-image img{
+      border-radius:26px;
+      box-shadow:var(--shadow-hover);
+    }
+
+    .process-text h2{
+      font-size:2.2rem;
+      margin-bottom:18px;
+    }
+
+    .process-text p{
+      color:var(--muted);
+      margin-bottom:16px;
+    }
+
+    .process-steps{
+      display:grid;
+      gap:16px;
+      margin-top:24px;
+    }
+
+    .process-step{
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+      background:var(--white);
+      padding:18px 20px;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+    }
+
+    .step-number{
+      min-width:48px;
+      height:48px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:var(--white);
+      font-weight:700;
+      box-shadow:0 10px 24px rgba(14,116,144,0.18);
+    }
+
+    .process-step h4{
+      color:var(--dark);
+      margin-bottom:4px;
+    }
+
+    .process-step p{
+      margin:0;
+      font-size:0.95rem;
+    }
+
+    /* FAQ */
+    .faq-wrapper{
+      max-width:900px;
+      margin:0 auto;
+    }
+
+    .faq-heading{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .faq-heading h2{
+      font-size:2.2rem;
+      margin-bottom:10px;
+    }
+
+    .faq-heading p{
+      color:var(--muted);
+    }
+
+    .faq-item{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      margin-bottom:16px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .faq-question{
+      width:100%;
+      background:none;
+      border:none;
+      padding:20px 22px;
+      text-align:left;
+      font-size:1rem;
+      font-weight:600;
+      color:var(--dark);
+      cursor:pointer;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+    }
+
+    .faq-question span{
+      font-size:1.4rem;
+      color:var(--primary);
+      transition:var(--transition);
+    }
+
+    .faq-answer{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height 0.35s ease;
+      padding:0 22px;
+    }
+
+    .faq-answer p{
+      color:var(--muted);
+      padding-bottom:20px;
+    }
+
+    .faq-item.active .faq-question span{
+      transform:rotate(45deg);
+    }
+
+    .faq-item.active .faq-answer{
+      max-height:200px;
+    }
+
+    /* CTA */
+    .cta{
+      background:
+        radial-gradient(circle at top right, rgba(249,115,22,0.18), transparent 24%),
+        linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color:var(--white);
+    }
+
+    .cta-box{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:28px;
+      padding:42px;
+    }
+
+    .cta-box h2{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .cta-box p{
+      color:#d6e7f3;
+      max-width:720px;
+    }
+
+    /* Footer */
+    .footer{
+      background:#0b1220;
+      color:#dbe7f3;
+      padding-top:70px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:30px;
+      padding-bottom:40px;
+    }
+
+    .footer h3,
+    .footer h4{
+      color:var(--white);
+      margin-bottom:16px;
+    }
+
+    .footer p,
+    .footer li{
+      color:#b9c7d8;
+      margin-bottom:10px;
+      font-size:0.96rem;
+    }
+
+    .footer ul li a{
+      transition:var(--transition);
+    }
+
+    .footer ul li a:hover{
+      color:var(--white);
+      padding-left:4px;
+    }
+
+    .footer-bottom{
+      text-align:center;
+      padding:20px 0;
+      border-top:1px solid rgba(255,255,255,0.08);
+      font-size:0.95rem;
+      color:#9eb1c8;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px){
+      .service-hero-grid,
+      .process-grid{
+        grid-template-columns:1fr;
+      }
+
+      .services-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .footer-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px){
+      .menu-toggle{
+        display:block;
+      }
+
+      .nav{
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:var(--white);
+        border-top:1px solid var(--border);
+        box-shadow:0 18px 35px rgba(15,23,42,0.08);
+        display:none;
+      }
+
+      .nav.active{
+        display:block;
+      }
+
+      .nav-links{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        gap:16px;
+      }
+
+      .nav-btn{
+        display:none;
+      }
+
+      .service-hero-text h1{
+        font-size:2.35rem;
+      }
+
+      .section-heading h2,
+      .process-text h2,
+      .faq-heading h2,
+      .cta-box h2{
+        font-size:1.9rem;
+      }
+
+      .hero-features{
+        grid-template-columns:1fr;
+      }
+
+      .cta-box{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    @media (max-width: 640px){
+      .section{
+        padding:70px 0;
+      }
+
+      .services-grid,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .service-hero-text h1{
+        font-size:2rem;
+      }
+
+      .section-heading h2,
+      .process-text h2,
+      .faq-heading h2,
+      .cta-box h2{
+        font-size:1.7rem;
+      }
+
+      .cta-box{
+        padding:28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container navbar">
+      <div class="logo">
+        <h2>Dr. Naresh Yadav</h2>
+        <span>Cardiologist</span>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+      <nav class="nav" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="appointment.html" class="btn">Book Appointment</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="service-hero">
+    <div class="container service-hero-grid">
+      <div class="service-hero-text">
+        <p class="section-subtitle">Cardiology Services</p>
+        <h1>Comprehensive <span>Heart Care Services</span> for Every Stage of Wellness</h1>
+        <p>
+          Dr. Naresh Yadav provides advanced cardiology consultation and patient-focused treatment
+          for heart health evaluation, diagnosis, preventive care, and long-term cardiac management.
+        </p>
+        <p>
+          Every service is designed to support better cardiovascular health with accurate diagnosis,
+          professional guidance, and compassionate care tailored to individual patient needs.
+        </p>
+
+        <div class="hero-features">
+          <div>? Preventive & diagnostic cardiac care</div>
+          <div>? Personalized consultation & treatment planning</div>
+          <div>? ECG evaluation and blood pressure management</div>
+          <div>? Long-term heart wellness support</div>
+        </div>
+
+        <a href="appointment.html" class="btn">Schedule Consultation</a>
+      </div>
+
+      <div class="service-hero-image">
+        <img src="images/doctor-profile.jpg" alt="Cardiology Services">
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-heading">
+        <p class="section-subtitle">Our Medical Services</p>
+        <h2>Specialized Cardiology Services by Dr. Naresh Yadav</h2>
+        <p>
+          Expert consultation and cardiac care services focused on diagnosis, prevention,
+          treatment, and long-term heart health management.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-badge">01</div>
+          <h3>Heart Checkup</h3>
+          <p>
+            Comprehensive cardiac evaluation to assess heart health, identify risk factors,
+            and support early diagnosis of heart-related conditions.
+          </p>
+          <ul>
+            <li>Routine heart health assessment</li>
+            <li>Risk evaluation and screening</li>
+            <li>Early detection support</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-badge">02</div>
+          <h3>ECG Testing</h3>
+          <p>
+            Accurate electrocardiogram testing to monitor heart rhythm, detect irregularities,
+            and support clinical diagnosis.
+          </p>
+          <ul>
+            <li>Heart rhythm monitoring</li>
+            <li>Irregular heartbeat detection</li>
+            <li>Cardiac evaluation support</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-badge">03</div>
+          <h3>Blood Pressure Management</h3>
+          <p>
+            Personalized consultation and treatment guidance for patients dealing with high
+            or unstable blood pressure levels.
+          </p>
+          <ul>
+            <li>Hypertension monitoring</li>
+            <li>Medication & lifestyle guidance</li>
+            <li>Risk reduction planning</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-badge">04</div>
+          <h3>Chest Pain Consultation</h3>
+          <p>
+            Detailed evaluation of chest discomfort and symptoms that may be linked to
+            heart disease or cardiovascular conditions.
+          </p>
+          <ul>
+            <li>Symptom-based cardiac consultation</li>
+            <li>Clinical risk assessment</li>
+            <li>Further treatment guidance</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-badge">05</div>
+          <h3>Preventive Cardiology</h3>
+          <p>
+            Preventive heart care focused on reducing the risk of cardiovascular disease
+            through screening, lifestyle advice, and regular monitoring.
+          </p>
+          <ul>
+            <li>Risk prevention planning</li>
+            <li>Diet & lifestyle guidance</li>
+            <li>Long-term wellness support</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-badge">06</div>
+          <h3>Follow-up Cardiac Care</h3>
+          <p>
+            Continued support for patients requiring regular monitoring, consultation,
+            and management of existing heart-related conditions.
+          </p>
+          <ul>
+            <li>Post-consultation monitoring</li>
+            <li>Ongoing treatment review</li>
+            <li>Recovery & stability support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process / Treatment Approach -->
+  <section class="section">
+    <div class="container process-grid">
+      <div class="process-image">
+        <img src="ny.jpeg" alt="Treatment Process">
+      </div>
+
+      <div class="process-text">
+        <p class="section-subtitle accent-subtitle">Treatment Approach</p>
+        <h2>How Dr. Naresh Yadav Approaches Cardiac Care</h2>
+        <p>
+          Every patient receives a structured and thoughtful care experience focused on accurate diagnosis,
+          clarity, and long-term wellness. The goal is to identify the root concern, explain the condition
+          clearly, and recommend the most suitable care plan.
+        </p>
+
+        <div class="process-steps">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <div>
+              <h4>Consultation & Symptom Review</h4>
+              <p>Understanding the patient’s concerns, symptoms, medical history, and lifestyle risk factors.</p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <div>
+              <h4>Clinical Evaluation & Testing</h4>
+              <p>Performing necessary cardiac evaluation such as ECG review and blood pressure assessment.</p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <div>
+              <h4>Personalized Care Plan</h4>
+              <p>Providing treatment guidance, preventive recommendations, and long-term follow-up support.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section bg-soft">
+    <div class="container faq-wrapper">
+      <div class="faq-heading">
+        <p class="section-subtitle">Frequently Asked Questions</p>
+        <h2>Common Questions About Cardiology Services</h2>
+        <p>Helpful answers for patients seeking consultation and cardiac care guidance.</p>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          When should I consult a cardiologist?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            You should consult a cardiologist if you experience chest pain, shortness of breath,
+            high blood pressure, irregular heartbeat, or if you have a family history of heart disease.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Is ECG testing available for routine heart evaluation?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Yes, ECG testing is an important diagnostic tool used to assess heart rhythm and identify
+            abnormalities as part of routine or symptom-based evaluation.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Can preventive cardiology help even if I don’t have heart disease?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Yes, preventive cardiology is valuable for reducing future cardiovascular risk through
+            lifestyle guidance, monitoring, and early screening of potential heart-related issues.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I need follow-up visits after treatment?
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>
+            Follow-up visits are often recommended to monitor progress, manage medications,
+            and ensure long-term stability of heart health depending on your condition.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta section">
+    <div class="container cta-box">
+      <div>
+        <p class="section-subtitle light-subtitle">Book an Appointment</p>
+        <h2>Need Professional Heart Care Consultation?</h2>
+        <p>
+          Schedule your consultation with Dr. Naresh Yadav for expert cardiac evaluation,
+          preventive guidance, and personalized treatment support.
+        </p>
+      </div>
+      <a href="appointment.html" class="btn btn-accent">Book Appointment</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <h3>Dr. Naresh Yadav</h3>
+        <p>
+          Professional cardiology care focused on accurate diagnosis, compassionate treatment,
+          and long-term heart health.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Core Services</h4>
+        <ul>
+          <li>Heart Checkup</li>
+          <li>ECG Testing</li>
+          <li>Chest Pain Consultation</li>
+          <li>Preventive Cardiology</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact Info</h4>
+        <ul>
+          <li>Mehta Heart Care Clinic</li>
+          <li>Jaipur, Rajasthan</li>
+          <li>+91 6367824967</li>
+          <li>ny7976540@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Dr. Naresh Yadav. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+      const btn = item.querySelector(".faq-question");
+      btn.addEventListener("click", () => {
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+</body>
+</html>

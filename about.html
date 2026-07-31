@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Dr. Naresh Yadav</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#0e7490;
+      --primary-dark:#0b5f75;
+      --secondary:#14b8a6;
+      --accent:#f97316;
+      --accent-dark:#ea580c;
+      --dark:#0f172a;
+      --text:#334155;
+      --muted:#64748b;
+      --light:#f8fafc;
+      --soft:#eff8ff;
+      --white:#ffffff;
+      --border:#e2e8f0;
+      --shadow:0 12px 35px rgba(15, 23, 42, 0.08);
+      --shadow-hover:0 16px 45px rgba(15, 23, 42, 0.12);
+      --radius:18px;
+      --transition:all 0.3s ease;
+      --max-width:1200px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.7;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    ul{
+      list-style:none;
+    }
+
+    .container{
+      width:min(92%, var(--max-width));
+      margin:auto;
+    }
+
+    .section{
+      padding:90px 0;
+    }
+
+    .bg-light{
+      background:var(--light);
+    }
+
+    .bg-soft{
+      background:linear-gradient(180deg, #f8fbff 0%, #eef8ff 100%);
+    }
+
+    .section-heading{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 50px;
+    }
+
+    .section-subtitle{
+      display:inline-block;
+      font-size:0.95rem;
+      font-weight:600;
+      color:var(--primary);
+      background:rgba(14,116,144,0.10);
+      padding:8px 16px;
+      border-radius:999px;
+      margin-bottom:14px;
+    }
+
+    .accent-subtitle{
+      color:var(--accent);
+      background:rgba(249,115,22,0.12);
+    }
+
+    .light-subtitle{
+      color:#dff9ff;
+      background:rgba(255,255,255,0.12);
+    }
+
+    .section-heading h2,
+    .about-hero-text h1,
+    .bio-text h2,
+    .mission-text h2{
+      color:var(--dark);
+      line-height:1.2;
+    }
+
+    .section-heading h2{
+      font-size:2.2rem;
+      margin-bottom:12px;
+    }
+
+    .section-heading p{
+      color:var(--muted);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:var(--white);
+      padding:14px 28px;
+      border-radius:999px;
+      font-weight:600;
+      border:none;
+      cursor:pointer;
+      transition:var(--transition);
+      box-shadow:0 10px 25px rgba(14,116,144,0.20);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 30px rgba(14,116,144,0.28);
+    }
+
+    .btn-outline{
+      background:transparent;
+      color:var(--primary);
+      border:2px solid rgba(14,116,144,0.18);
+      box-shadow:none;
+    }
+
+    .btn-outline:hover{
+      background:var(--primary);
+      color:var(--white);
+    }
+
+    .btn-accent{
+      background:linear-gradient(135deg, var(--accent), var(--accent-dark));
+      box-shadow:0 10px 25px rgba(249,115,22,0.22);
+    }
+
+    /* Header */
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,0.96);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(226,232,240,0.7);
+    }
+
+    .navbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:16px 0;
+    }
+
+    .logo h2{
+      font-size:1.45rem;
+      color:var(--dark);
+      margin-bottom:2px;
+    }
+
+    .logo span{
+      color:var(--primary);
+      font-size:0.92rem;
+      font-weight:600;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+
+    .nav-links a{
+      font-weight:500;
+      color:var(--dark);
+      position:relative;
+      transition:var(--transition);
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-8px;
+      width:0;
+      height:2px;
+      background:var(--primary);
+      transition:var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:var(--primary);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after{
+      width:100%;
+    }
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.7rem;
+      cursor:pointer;
+      color:var(--dark);
+    }
+
+    /* About Hero */
+    .about-hero{
+      padding:90px 0 70px;
+      background:
+        radial-gradient(circle at top left, rgba(20,184,166,0.14), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(14,116,144,0.14), transparent 30%),
+        linear-gradient(180deg, #ffffff 0%, #f4fbff 100%);
+    }
+
+    .about-hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .about-hero-text h1{
+      font-size:3rem;
+      margin-bottom:18px;
+    }
+
+    .about-hero-text h1 span{
+      color:var(--primary);
+    }
+
+    .about-hero-text p{
+      color:var(--muted);
+      margin-bottom:18px;
+      font-size:1.03rem;
+    }
+
+    .hero-badges{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(220px, 1fr));
+      gap:16px;
+      margin:28px 0;
+    }
+
+    .hero-badges div{
+      background:var(--white);
+      padding:16px 18px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      font-size:0.95rem;
+    }
+
+    .hero-badges strong{
+      color:var(--dark);
+    }
+
+    .about-hero-image img{
+      border-radius:28px;
+      box-shadow:var(--shadow-hover);
+      border:8px solid rgba(255,255,255,0.8);
+    }
+
+    /* Doctor Bio */
+    .bio-grid{
+      display:grid;
+      grid-template-columns:0.95fr 1.05fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .bio-image img{
+      border-radius:26px;
+      box-shadow:var(--shadow-hover);
+    }
+
+    .bio-text h2{
+      font-size:2.2rem;
+      margin-bottom:18px;
+    }
+
+    .bio-text p{
+      color:var(--muted);
+      margin-bottom:16px;
+    }
+
+    .bio-highlights{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+      margin-top:24px;
+    }
+
+    .bio-card{
+      background:var(--white);
+      padding:22px;
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--border);
+      transition:var(--transition);
+    }
+
+    .bio-card:hover{
+      transform:translateY(-5px);
+      box-shadow:var(--shadow-hover);
+    }
+
+    .bio-card h4{
+      color:var(--dark);
+      margin-bottom:10px;
+    }
+
+    .bio-card p{
+      margin:0;
+      font-size:0.95rem;
+    }
+
+    /* Qualification Timeline */
+    .timeline-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .timeline-card{
+      background:var(--white);
+      padding:28px 24px;
+      border-radius:22px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+      transition:var(--transition);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .timeline-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:5px;
+      background:linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    }
+
+    .timeline-card:hover{
+      transform:translateY(-8px);
+      box-shadow:var(--shadow-hover);
+    }
+
+    .timeline-year{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(14,116,144,0.10);
+      color:var(--primary);
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    .timeline-card h3{
+      color:var(--dark);
+      margin-bottom:10px;
+      font-size:1.15rem;
+    }
+
+    .timeline-card p{
+      color:var(--muted);
+      font-size:0.96rem;
+    }
+
+    /* Mission */
+    .mission-grid{
+      display:grid;
+      grid-template-columns:1.05fr 0.95fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .mission-text h2{
+      font-size:2.2rem;
+      margin-bottom:18px;
+    }
+
+    .mission-text p{
+      color:var(--muted);
+      margin-bottom:16px;
+    }
+
+    .mission-points{
+      margin-top:20px;
+      display:grid;
+      gap:14px;
+    }
+
+    .mission-point{
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:18px 20px;
+      box-shadow:var(--shadow);
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+
+    .mission-icon{
+      min-width:42px;
+      height:42px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--primary), var(--secondary));
+      color:var(--white);
+      font-weight:700;
+      box-shadow:0 10px 24px rgba(14,116,144,0.18);
+    }
+
+    .mission-point h4{
+      color:var(--dark);
+      margin-bottom:4px;
+    }
+
+    .mission-point p{
+      margin:0;
+      font-size:0.95rem;
+    }
+
+    .mission-image img{
+      border-radius:26px;
+      box-shadow:var(--shadow-hover);
+    }
+
+    /* Stats */
+    .bg-primary{
+      background:linear-gradient(135deg, #0e7490 0%, #14b8a6 100%);
+      color:var(--white);
+    }
+
+    .light-heading h2,
+    .light-heading p{
+      color:var(--white);
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:24px;
+    }
+
+    .stat-box{
+      text-align:center;
+      background:rgba(255,255,255,0.12);
+      padding:32px 20px;
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,0.18);
+      backdrop-filter:blur(10px);
+    }
+
+    .stat-box h2{
+      font-size:2.5rem;
+      margin-bottom:10px;
+    }
+
+    .stat-box p{
+      color:#e9fdff;
+      font-weight:500;
+    }
+
+    /* CTA */
+    .cta{
+      background:
+        radial-gradient(circle at top right, rgba(249,115,22,0.18), transparent 24%),
+        linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color:var(--white);
+    }
+
+    .cta-box{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:28px;
+      padding:42px;
+    }
+
+    .cta-box h2{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .cta-box p{
+      color:#d6e7f3;
+      max-width:720px;
+    }
+
+    /* Footer */
+    .footer{
+      background:#0b1220;
+      color:#dbe7f3;
+      padding-top:70px;
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:30px;
+      padding-bottom:40px;
+    }
+
+    .footer h3,
+    .footer h4{
+      color:var(--white);
+      margin-bottom:16px;
+    }
+
+    .footer p,
+    .footer li{
+      color:#b9c7d8;
+      margin-bottom:10px;
+      font-size:0.96rem;
+    }
+
+    .footer ul li a{
+      transition:var(--transition);
+    }
+
+    .footer ul li a:hover{
+      color:var(--white);
+      padding-left:4px;
+    }
+
+    .footer-bottom{
+      text-align:center;
+      padding:20px 0;
+      border-top:1px solid rgba(255,255,255,0.08);
+      font-size:0.95rem;
+      color:#9eb1c8;
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px){
+      .about-hero-grid,
+      .bio-grid,
+      .mission-grid{
+        grid-template-columns:1fr;
+      }
+
+      .timeline-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .stats-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .footer-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px){
+      .menu-toggle{
+        display:block;
+      }
+
+      .nav{
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        background:var(--white);
+        border-top:1px solid var(--border);
+        box-shadow:0 18px 35px rgba(15,23,42,0.08);
+        display:none;
+      }
+
+      .nav.active{
+        display:block;
+      }
+
+      .nav-links{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px;
+        gap:16px;
+      }
+
+      .nav-btn{
+        display:none;
+      }
+
+      .about-hero-text h1{
+        font-size:2.35rem;
+      }
+
+      .section-heading h2,
+      .bio-text h2,
+      .mission-text h2,
+      .cta-box h2{
+        font-size:1.9rem;
+      }
+
+      .hero-badges{
+        grid-template-columns:1fr;
+      }
+
+      .bio-highlights{
+        grid-template-columns:1fr;
+      }
+
+      .timeline-grid{
+        grid-template-columns:1fr;
+      }
+
+      .cta-box{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+
+    @media (max-width: 640px){
+      .section{
+        padding:70px 0;
+      }
+
+      .stats-grid,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .about-hero-text h1{
+        font-size:2rem;
+      }
+
+      .section-heading h2,
+      .bio-text h2,
+      .mission-text h2,
+      .cta-box h2{
+        font-size:1.7rem;
+      }
+
+      .cta-box{
+        padding:28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container navbar">
+      <div class="logo">
+        <h2>Dr. Naresh Yadav</h2>
+        <span>Cardiologist</span>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+      <nav class="nav" id="navMenu">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="appointment.html" class="btn nav-btn">Book Appointment</a>
+    </div>
+  </header>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="container about-hero-grid">
+      <div class="about-hero-text">
+        <p class="section-subtitle">About Dr. Naresh Yadav</p>
+        <h1>Committed to <span>Advanced Cardiac Care</span> and Patient Well-Being</h1>
+        <p>
+          Dr. Naresh Yadav is a dedicated cardiologist with 12+ years of experience in diagnosing,
+          treating, and managing a wide range of heart-related conditions. He is known for his
+          patient-focused approach, accurate clinical evaluation, and commitment to preventive heart care.
+        </p>
+        <p>
+          With a strong foundation in medical excellence and compassionate treatment, Dr. Yadav helps
+          patients make informed decisions about their heart health while ensuring every consultation is
+          clear, supportive, and personalized.
+        </p>
+
+        <div class="hero-badges">
+          <div><strong>Qualification:</strong> MBBS, MD Cardiology</div>
+          <div><strong>Experience:</strong> 12+ Years</div>
+          <div><strong>Clinic:</strong> Mehta Heart Care Clinic</div>
+          <div><strong>Award:</strong> Best Cardiologist Award 2025</div>
+        </div>
+
+        <a href="appointment.html" class="btn">Book Appointment</a>
+      </div>
+
+      <div class="about-hero-image">
+        <img src="images/doctor-profile.jpg" alt="Dr. Naresh Yadav">
+      </div>
+    </div>
+  </section>
+
+  <!-- Doctor Bio -->
+  <section class="section">
+    <div class="container bio-grid">
+      <div class="bio-image">
+        <img src="ny.jpeg" alt="Dr. Naresh Yadav">
+      </div>
+
+      <div class="bio-text">
+        <p class="section-subtitle accent-subtitle">Professional Profile</p>
+        <h2>A Trusted Cardiologist Focused on Better Heart Health</h2>
+        <p>
+          Dr. Naresh Yadav is an experienced cardiologist dedicated to providing advanced and compassionate
+          heart care to patients. His approach combines precise diagnosis, evidence-based treatment,
+          and preventive strategies to improve long-term cardiac wellness.
+        </p>
+        <p>
+          Over the years, he has built a strong reputation for listening carefully to patients, explaining
+          medical conditions in a simple way, and designing treatment plans that fit individual needs.
+          His goal is not only to treat existing heart conditions but also to reduce future cardiovascular risks.
+        </p>
+
+        <div class="bio-highlights">
+          <div class="bio-card">
+            <h4>Patient-Centered Care</h4>
+            <p>Every patient receives personalized attention, clear communication, and a thoughtful treatment plan.</p>
+          </div>
+
+          <div class="bio-card">
+            <h4>Preventive Approach</h4>
+            <p>Strong focus on early diagnosis, lifestyle guidance, and long-term prevention of heart disease.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qualification / Journey -->
+  <section class="section bg-soft">
+    <div class="container">
+      <div class="section-heading">
+        <p class="section-subtitle">Education & Journey</p>
+        <h2>Professional Qualification & Experience</h2>
+        <p>Academic excellence and years of hands-on experience in cardiology and heart care.</p>
+      </div>
+
+      <div class="timeline-grid">
+        <div class="timeline-card">
+          <span class="timeline-year">MBBS</span>
+          <h3>Medical Foundation</h3>
+          <p>
+            Completed MBBS with a strong academic foundation in medicine, patient diagnosis, and clinical care.
+          </p>
+        </div>
+
+        <div class="timeline-card">
+          <span class="timeline-year">MD Cardiology</span>
+          <h3>Advanced Cardiology Training</h3>
+          <p>
+            Specialized in cardiology with advanced knowledge of heart disease diagnosis, treatment planning,
+            and preventive cardiac care.
+          </p>
+        </div>
+
+        <div class="timeline-card">
+          <span class="timeline-year">12+ Years</span>
+          <h3>Clinical Experience</h3>
+          <p>
+            Built extensive practical experience in consultation, ECG evaluation, blood pressure management,
+            and long-term cardiac wellness support.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission / Vision -->
+  <section class="section">
+    <div class="container mission-grid">
+      <div class="mission-text">
+        <p class="section-subtitle">Mission & Vision</p>
+        <h2>Providing Reliable, Compassionate, and Modern Heart Care</h2>
+        <p>
+          Dr. Naresh Yadav believes that quality heart care should combine medical expertise with empathy,
+          trust, and preventive guidance. His mission is to help patients achieve better cardiovascular health
+          through accurate diagnosis, early intervention, and long-term support.
+        </p>
+        <p>
+          He is committed to maintaining the highest standards of patient care while ensuring that each person
+          feels heard, respected, and confident about their treatment journey.
+        </p>
+
+        <div class="mission-points">
+          <div class="mission-point">
+            <div class="mission-icon">?</div>
+            <div>
+              <h4>Accurate Diagnosis</h4>
+              <p>Careful assessment and clinical evaluation for better treatment decisions.</p>
+            </div>
+          </div>
+
+          <div class="mission-point">
+            <div class="mission-icon">?</div>
+            <div>
+              <h4>Compassionate Consultation</h4>
+              <p>Friendly and respectful care that prioritizes comfort, trust, and patient understanding.</p>
+            </div>
+          </div>
+
+          <div class="mission-point">
+            <div class="mission-icon">?</div>
+            <div>
+              <h4>Long-Term Wellness</h4>
+              <p>Focus on prevention, recovery, and lifestyle improvements for a healthier future.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mission-image">
+        <img src="images/doctor-profile.jpg" alt="Cardiology Care">
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section bg-primary">
+    <div class="container">
+      <div class="section-heading light-heading">
+        <p class="section-subtitle light-subtitle">Achievements & Trust</p>
+        <h2>Professional Impact in Cardiac Care</h2>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <h2>12+</h2>
+          <p>Years of Experience</p>
+        </div>
+
+        <div class="stat-box">
+          <h2>5000+</h2>
+          <p>Patients Consulted</p>
+        </div>
+
+        <div class="stat-box">
+          <h2>2025</h2>
+          <p>Best Cardiologist Award</p>
+        </div>
+
+        <div class="stat-box">
+          <h2>100%</h2>
+          <p>Patient-Focused Care</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta section">
+    <div class="container cta-box">
+      <div>
+        <p class="section-subtitle light-subtitle">Schedule a Consultation</p>
+        <h2>Looking for Expert Heart Care in Jaipur?</h2>
+        <p>
+          Book an appointment with Dr. Naresh Yadav for professional cardiac consultation,
+          preventive heart care, and personalized treatment guidance.
+        </p>
+      </div>
+      <a href="appointment.html" class="btn btn-accent">Book Appointment</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-about">
+        <h3>Dr. Naresh Yadav</h3>
+        <p>
+          Professional cardiology care focused on accurate diagnosis, compassionate treatment,
+          and long-term heart health.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="appointment.html">Appointment</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li>Heart Checkup</li>
+          <li>ECG Testing</li>
+          <li>Blood Pressure Management</li>
+          <li>Preventive Cardiology</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contact Info</h4>
+        <ul>
+          <li>Mehta Heart Care Clinic</li>
+          <li>Jaipur, Rajasthan</li>
+          <li>+91 6367824967</li>
+          <li>ny7976540@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Dr. Naresh Yadav. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
+  </script>
+</body>
+</html>
